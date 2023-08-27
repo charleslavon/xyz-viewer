@@ -75,8 +75,8 @@ const HomePage: NextPageWithLayout = () => {
   return (
     <>
       <MetaTags
-        title={`NEAR | The OS for an Open Web`}
-        description={`"NEAR isn’t just a Layer 1 blockchain — it’s the Blockchain Operating System for an  Open Web. Create and discover decentralized apps, and help build the future of the web, today."`}
+        title={`Charles' Gateway into the Open Web`}
+        description={`"Built on Near Protocol's Blockchain Operating System for an Open Web. Create and discover decentralized apps, and help build the future of the web."`}
       />
       <Wrapper className="container-xl">
         <VmComponent src="charleslavon.near/widget/ProfilePage" props={{ accountId: 'charleslavon.near' }} />
