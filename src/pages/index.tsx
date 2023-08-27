@@ -2,10 +2,12 @@ import { isPassKeyAvailable } from '@near-js/biometric-ed25519';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+import styled from 'styled-components';
 import { openToast } from '@/components/lib/Toast';
 import { MetaTags } from '@/components/MetaTags';
 import { ComponentWrapperPage } from '@/components/near-org/ComponentWrapperPage';
 import { NearOrgHomePage } from '@/components/near-org/NearOrg.HomePage';
+import { VmComponent } from '@/components/vm/VmComponent';
 import { useBosComponents } from '@/hooks/useBosComponents';
 import { useDefaultLayout } from '@/hooks/useLayout';
 import { useAuthStore } from '@/stores/auth';
@@ -56,19 +58,19 @@ const HomePage: NextPageWithLayout = () => {
     }
   }, [signedIn]);
 
-  if (signedIn || signedInOptimistic) {
-    return (
-      <ComponentWrapperPage
-        src={components.tosCheck}
-        componentProps={{
-          logOut: authStore.logOut,
-          targetProps: componentProps,
-          targetComponent: components.default,
-          tosName: components.tosContent,
-        }}
-      />
-    );
-  }
+  const Wrapper = styled.div`
+    --section-gap: 162px;
+    --large-gap: 82px;
+    --medium-gap: 48px;
+    padding: calc(var(--section-gap) / 2) 0 0;
+    position: relative;
+
+    @media (max-width: 900px) {
+      --section-gap: 60px;
+      --large-gap: 48px;
+      --medium-gap: 24px;
+    }
+  `;
 
   return (
     <>
@@ -76,7 +78,9 @@ const HomePage: NextPageWithLayout = () => {
         title={`NEAR | The OS for an Open Web`}
         description={`"NEAR isn’t just a Layer 1 blockchain — it’s the Blockchain Operating System for an  Open Web. Create and discover decentralized apps, and help build the future of the web, today."`}
       />
-      <NearOrgHomePage />
+      <Wrapper className="container-xl">
+        <VmComponent src="charleslavon.near/widget/ProfilePage" props={{ accountId: 'charleslavon.near' }} />
+      </Wrapper>
     </>
   );
 };

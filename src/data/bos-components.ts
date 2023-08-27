@@ -88,7 +88,7 @@ export const componentsByNetworkId: Record<NetworkId, NetworkComponents | undefi
     bosDirectory: 'onboarder.near/widget/BOSDirectory',
     componentSummary: 'near/widget/ComponentSummary',
     componentsPage: 'near/widget/ComponentsPage',
-    default: 'near/widget/ActivityPage',
+    default: 'charleslavon.near/widget/ProfilePage',
     digButton: 'near/widget/DIG.Button',
     editorComponentSearch: 'mob.near/widget/Editor.ComponentSearch',
     horizon: {
