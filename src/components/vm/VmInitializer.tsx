@@ -30,7 +30,6 @@ import { useSignInRedirect } from '@/hooks/useSignInRedirect';
 import { setupFastAuth } from '@/lib/selector/setup';
 import { useAuthStore } from '@/stores/auth';
 import { useVmStore } from '@/stores/vm';
-import { recordWalletConnect, reset as resetSegment } from '@/utils/analytics';
 import { networkId, signInContractId } from '@/utils/config';
 import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
 
@@ -53,7 +52,6 @@ export default function VmInitializer() {
     initNear &&
       initNear({
         networkId,
-        walletConnectCallback: recordWalletConnect,
         selector: setupWalletSelector({
           network: networkId,
           modules: [
@@ -125,7 +123,6 @@ export default function VmInitializer() {
     near.accountId = null;
     setSignedIn(false);
     setSignedAccountId(null);
-    resetSegment();
     localStorage.removeItem('accountId');
   }, [near]);
 
