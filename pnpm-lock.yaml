@@ -125,8 +125,8 @@ dependencies:
     specifier: 2.1.3
     version: 2.1.3
   near-social-vm:
-    specifier: github:NearSocial/VM#disable-is-tag
-    version: github.com/NearSocial/VM/fedc4a2f878e6e75385d4b1e69f37a1b77e739c6(@popperjs/core@2.11.7)(@types/react@18.2.0)(near-api-js@2.1.3)(prop-types@15.8.1)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)
+    specifier: github:NearSocial/VM#2.5.2
+    version: github.com/NearSocial/VM/9fe2d4ec05727ee2e2db8ddf198556220a169a4f(@popperjs/core@2.11.7)(@types/react@18.2.0)(near-api-js@2.1.3)(prop-types@15.8.1)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0)
   next:
     specifier: 13.3.4
     version: 13.3.4(react-dom@18.2.0)(react@18.2.0)
@@ -9669,11 +9669,11 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
 
-  github.com/NearSocial/VM/fedc4a2f878e6e75385d4b1e69f37a1b77e739c6(@popperjs/core@2.11.7)(@types/react@18.2.0)(near-api-js@2.1.3)(prop-types@15.8.1)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0):
-    resolution: {tarball: https://codeload.github.com/NearSocial/VM/tar.gz/fedc4a2f878e6e75385d4b1e69f37a1b77e739c6}
-    id: github.com/NearSocial/VM/fedc4a2f878e6e75385d4b1e69f37a1b77e739c6
+  github.com/NearSocial/VM/9fe2d4ec05727ee2e2db8ddf198556220a169a4f(@popperjs/core@2.11.7)(@types/react@18.2.0)(near-api-js@2.1.3)(prop-types@15.8.1)(react-dom@18.2.0)(react-is@17.0.2)(react@18.2.0):
+    resolution: {tarball: https://codeload.github.com/NearSocial/VM/tar.gz/9fe2d4ec05727ee2e2db8ddf198556220a169a4f}
+    id: github.com/NearSocial/VM/9fe2d4ec05727ee2e2db8ddf198556220a169a4f
     name: near-social-vm
-    version: 2.5.0
+    version: 2.5.2
     peerDependencies:
       near-api-js: 2.1.3
       react: ^18.2.0
