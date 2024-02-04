@@ -55,7 +55,6 @@ export default function VmInitializer() {
         selector: setupWalletSelector({
           network: networkId,
           modules: [
-            setupNearWallet(),
             setupMyNearWallet(),
             setupSender(),
             setupHereWallet(),
