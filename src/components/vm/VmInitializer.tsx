@@ -6,7 +6,6 @@ import { setupMeteorWallet } from '@near-wallet-selector/meteor-wallet';
 import type { WalletSelectorModal } from '@near-wallet-selector/modal-ui';
 import { setupModal } from '@near-wallet-selector/modal-ui';
 import { setupMyNearWallet } from '@near-wallet-selector/my-near-wallet';
-import { setupNearWallet } from '@near-wallet-selector/near-wallet';
 import { setupNeth } from '@near-wallet-selector/neth';
 import { setupNightly } from '@near-wallet-selector/nightly';
 import { setupSender } from '@near-wallet-selector/sender';
@@ -27,7 +26,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { useEthersProviderContext } from '@/data/web3';
 import { useSignInRedirect } from '@/hooks/useSignInRedirect';
-import { setupFastAuth } from '@/lib/selector/setup';
 import { useAuthStore } from '@/stores/auth';
 import { useVmStore } from '@/stores/vm';
 import { networkId, signInContractId } from '@/utils/config';
@@ -65,14 +63,6 @@ export default function VmInitializer() {
             }),
             setupNightly(),
             setupWelldoneWallet(),
-            setupFastAuth({
-              networkId,
-              signInContractId,
-              relayerUrl:
-                networkId === 'testnet'
-                  ? 'http://34.70.226.83:3030/relay'
-                  : 'https://near-relayer-mainnet.api.pagoda.co/relay',
-            }) as any, // TODO: Refactor setupFastAuth() to TS
             setupKeypom({
               trialAccountSpecs: {
                 url:

@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { openToast } from '@/components/lib/Toast';
 import { MetaTags } from '@/components/MetaTags';
-import { ComponentWrapperPage } from '@/components/near-org/ComponentWrapperPage';
-import { NearOrgHomePage } from '@/components/near-org/NearOrg.HomePage';
 import { VmComponent } from '@/components/vm/VmComponent';
 import { useBosComponents } from '@/hooks/useBosComponents';
 import { useDefaultLayout } from '@/hooks/useLayout';
@@ -24,6 +22,8 @@ const HomePage: NextPageWithLayout = () => {
   const setComponentSrc = useCurrentComponentStore((store) => store.setSrc);
   const authStore = useAuthStore();
   const [componentProps, setComponentProps] = useState<Record<string, unknown>>({});
+  const logOut = useAuthStore((store) => store.logOut);
+
 
   useEffect(() => {
     const optimisticAccountId = window.localStorage.getItem(LS_ACCOUNT_ID);
@@ -36,7 +36,6 @@ const HomePage: NextPageWithLayout = () => {
     }
   }, [signedIn, setComponentSrc]);
 
-  // if we are loading the ActivityPage, process the query params into componentProps
   useEffect(() => {
     if (signedIn || signedInOptimistic) {
       setComponentProps(router.query);
@@ -79,7 +78,8 @@ const HomePage: NextPageWithLayout = () => {
         description={`"Built on Near Protocol's Blockchain Operating System for an Open Web. Create and discover decentralized apps, and help build the future of the web."`}
       />
       <Wrapper className="container-xl">
-        <VmComponent src="charleslavon.near/widget/ProfilePage" props={{ accountId: 'charleslavon.near' }} />
+      <VmComponent src="charleslavon.near/widget/ProfilePage" props={{ accountId: 'charleslavon.near' }
+} />
       </Wrapper>
     </>
   );

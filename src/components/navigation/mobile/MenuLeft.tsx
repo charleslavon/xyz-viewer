@@ -132,17 +132,7 @@ export function MenuLeft(props: Props) {
   const signedIn = useAuthStore((store) => store.signedIn);
   const components = useBosComponents();
   const previousPath = useRef('');
-  const { requestAuthentication } = useSignInRedirect();
-
-  function handleSignIn() {
-    props.onCloseMenu();
-    requestAuthentication();
-  }
-
-  function handleCreateAccount() {
-    props.onCloseMenu();
-    requestAuthentication(true);
-  }
+  const requestSignInWithWallet = useAuthStore((store) => store.requestSignInWithWallet);
 
   function search() {
     props.onCloseMenu();
@@ -169,20 +159,15 @@ export function MenuLeft(props: Props) {
         />
 
         <Image className="near-logotype" src={NearLogotype} alt="NEAR logotype" onClick={() => router.push('/')} />
-        <button className="search-btn" style={{ backgroundImage: `url(${SearchIcon.src})` }} onClick={search}>
-          Search NEAR
-        </button>
         <AccordionMenu />
 
         {!signedIn && (
           <div className="bottom-btns">
-            <Button label="Sign in" variant="secondary" size="large" onClick={handleSignIn} />
-            <Button label="Create Account" variant="primary" size="large" onClick={handleCreateAccount} />
+            <Button label="Sign in" variant="secondary" size="large" onClick={requestSignInWithWallet} />
           </div>
         )}
         {signedIn && (
           <div className="logged-in-btns">
-            <NotificationButton />
             <UserDropdownMenu />
           </div>
         )}

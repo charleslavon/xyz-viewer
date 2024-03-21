@@ -221,27 +221,6 @@ export const AccordionMenu = () => (
         </AccordionContent>
       </Accordion.Item>
 
-      <Accordion.Item className="AccordionItem" value="item-2">
-        <AccordionTrigger>Develop</AccordionTrigger>
-        <AccordionContent>
-          <ul>
-            <ListItem route={navLinkData.sandbox.link} title={navLinkData.sandbox.title}>
-              <i className="ph-duotone ph-code-block"></i>
-              {navLinkData.sandbox.description}
-            </ListItem>
-            <ListItem href={navLinkData.documentation.link} title={navLinkData.documentation.title}>
-              <i className="ph-duotone ph-book-open-text"></i>
-              {navLinkData.documentation.description}
-            </ListItem>
-            <ListItem href={navLinkData.tutorials.link} title={navLinkData.tutorials.title}>
-              <i className="ph-duotone ph-video"></i>
-              {navLinkData.tutorials.description}
-            </ListItem>
-          </ul>
-          <CurrentComponent />
-        </AccordionContent>
-      </Accordion.Item>
-
       <Accordion.Item className="AccordionItem" value="item-3">
         <AccordionTrigger>Connect</AccordionTrigger>
         <Accordion.Content className="AccordionContent">
@@ -253,10 +232,6 @@ export const AccordionMenu = () => (
             <ListItem title={navLinkData.ecosystem.title} route={navLinkData.ecosystem.link}>
               <i className="ph-duotone ph-users-three"></i>
               {navLinkData.ecosystem.description}
-            </ListItem>
-            <ListItem title={navLinkData.events.title} route={navLinkData.events.link}>
-              <i className="ph-duotone ph-globe-hemisphere-west"></i>
-              {navLinkData.events.description}
             </ListItem>
           </ul>
         </Accordion.Content>
@@ -282,25 +257,6 @@ export const AccordionMenu = () => (
         </Accordion.Content>
       </Accordion.Item>
 
-      <Accordion.Item className="AccordionItem" value="item-5">
-        <AccordionTrigger>More</AccordionTrigger>
-        <Accordion.Content className="AccordionContent">
-          <ul>
-            <ListItem title={navLinkData.about.title} route={navLinkData.about.link}>
-              <i className="ph-duotone ph-info"></i>
-              {navLinkData.about.description}
-            </ListItem>
-            <ListItem title={navLinkData.news.title} route={navLinkData.news.link}>
-              <i className="ph-duotone ph-newspaper"></i>
-              {navLinkData.news.description}
-            </ListItem>
-            <ListItem title={navLinkData.learn.title} route={navLinkData.learn.link}>
-              <i className="ph-duotone ph-books"></i>
-              {navLinkData.learn.description}
-            </ListItem>
-          </ul>
-        </Accordion.Content>
-      </Accordion.Item>
     </Accordion.Root>
   </Wrapper>
 );

@@ -31,14 +31,13 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useHashUrlBackwardsCompatibility();
   const getLayout = Component.getLayout ?? ((page) => page);
   const router = useRouter();
-  const authStore = useAuthStore();
-  const componentSrc = router.query;
 
 
   return (
     <>
       <Head>
         <link rel="icon" href="favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
 
       <Script id="phosphor-icons" src="https://unpkg.com/@phosphor-icons/web@2.0.3" async />

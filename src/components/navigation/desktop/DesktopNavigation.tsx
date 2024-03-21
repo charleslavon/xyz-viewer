@@ -13,7 +13,6 @@ import LogoBlack from '../icons/logo-black.svg';
 import NearLogotype from '../icons/near-logotype.svg';
 import ReturnIconImage from '../icons/return.svg';
 import SearchIconImage from '../icons/search.svg';
-import { NotificationButton } from '../NotificationButton';
 import { MainNavigationMenu } from './MainNavigationMenu';
 import { TypeAheadDropdown } from './TypeAheadDropdown';
 import { UserDropdownMenu } from './UserDropdownMenu';
@@ -119,7 +118,7 @@ export const DesktopNavigation = () => {
   const components = useBosComponents();
   const searchFocusTimeout = useRef<NodeJS.Timeout>();
   const signedIn = useAuthStore((store) => store.signedIn);
-  const { requestAuthentication } = useSignInRedirect();
+  const requestSignInWithWallet = useAuthStore((store) => store.requestSignInWithWallet);
 
   const setSearchIsFocused = (isFocused: boolean) => {
     if (isFocused) {
@@ -148,13 +147,7 @@ export const DesktopNavigation = () => {
     };
   }, []);
 
-  function handleSignIn() {
-    requestAuthentication();
-  }
 
-  function handleCreateAccount() {
-    requestAuthentication(true);
-  }
 
   return (
     <StyledNavigation className={`${scrolled ? 'border-bottom' : ''}`}>
@@ -167,48 +160,15 @@ export const DesktopNavigation = () => {
             alt="NEAR"
           />
         </Link>
-
-        <div className="form-wrapper">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              router.push(`/${components.search.indexPage}?term=${encodeURIComponent(searchTerm)}`);
-              setSearchIsFocused(false);
-            }}
-          >
-            <input
-              placeholder="Search"
-              style={{ backgroundImage: `url(${SearchIconImage.src})` }}
-              onFocus={() => {
-                setSearchIsFocused(true);
-              }}
-              onBlur={() => {
-                setSearchIsFocused(false);
-              }}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              ref={searchRef}
-            />
-          </form>
-
-          {showTypeAheadDropdown && (
-            <TypeAheadDropdownContainer>
-              <TypeAheadDropdown term={searchTerm} focusChange={setSearchIsFocused} />
-            </TypeAheadDropdownContainer>
-          )}
-
-          {searchIsFocused && <Image src={ReturnIconImage} alt="Return" />}
-        </div>
         <MainNavigationMenu />
         <div className="right-side-actions">
           {!signedIn && (
             <>
-              <Button label="Sign In" variant="secondary" onClick={handleSignIn} />
-              <Button label="Create Account" variant="primary" onClick={handleCreateAccount} />
+              <Button label="Sign In" variant="secondary" onClick={requestSignInWithWallet} />
             </>
           )}
           {signedIn && (
             <>
-              <NotificationButton />
               <UserDropdownMenu />
             </>
           )}

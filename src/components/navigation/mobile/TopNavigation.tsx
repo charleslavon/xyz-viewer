@@ -172,12 +172,6 @@ export function TopNavigation(props: Props) {
         <Image src={signedIn ? LogoBlack : NearLogotype} alt="NEAR logo" />
       </Link>
 
-      {!signedIn && (
-        <>
-          <Button label="Create Account" variant="secondary" size="small" onClick={handleCreateAccount} />
-        </>
-      )}
-
       <Button label="Menu" icon="ph-bold ph-list" variant="primary" size="small" onClick={props.onClickShowMenu} />
     </StyledNavigation>
   );
