@@ -30,6 +30,7 @@ import { useAuthStore } from '@/stores/auth';
 import { useVmStore } from '@/stores/vm';
 import { networkId, signInContractId } from '@/utils/config';
 import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
+import { setupMintbaseWallet } from '@near-wallet-selector/mintbase-wallet';
 
 export default function VmInitializer() {
   const [signedIn, setSignedIn] = useState(false);
@@ -53,33 +54,9 @@ export default function VmInitializer() {
         selector: setupWalletSelector({
           network: networkId,
           modules: [
-            setupMyNearWallet(),
-            setupSender(),
             setupHereWallet(),
             setupMeteorWallet(),
-            setupNeth({
-              gas: '300000000000000',
-              bundle: false,
-            }),
-            setupNightly(),
-            setupWelldoneWallet(),
-            setupKeypom({
-              trialAccountSpecs: {
-                url:
-                  networkId == 'testnet'
-                    ? 'https://test.near.org/#trial-url/ACCOUNT_ID/SECRET_KEY'
-                    : 'https://near.org/#trial-url/ACCOUNT_ID/SECRET_KEY',
-                modalOptions: KEYPOM_OPTIONS(networkId),
-              },
-              instantSignInSpecs: {
-                url:
-                  networkId == 'testnet'
-                    ? 'https://test.near.org/#instant-url/ACCOUNT_ID/SECRET_KEY/MODULE_ID'
-                    : 'https://near.org/#instant-url/ACCOUNT_ID/SECRET_KEY/MODULE_ID',
-              },
-              networkId,
-              signInContractId,
-            }) as any, // TODO: Refactor setupKeypom() to TS
+            setupMintbaseWallet()
           ],
         }),
         customElements: {
