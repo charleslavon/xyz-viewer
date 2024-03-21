@@ -108,14 +108,13 @@ const ViewComponentPage: NextPageWithLayout = ({ meta }: InferGetServerSideProps
               paddingTop: 'var(--body-top-padding)',
             }}
           >
-            <VmComponent
-              key={components.tosCheck}
-              src={components.tosCheck}
+             <VmComponent
+              key={components.wrapper}
+              src={components.wrapper}
               props={{
                 logOut: authStore.logOut,
-                targetProps: componentProps,
                 targetComponent: componentSrc,
-                tosName: components.tosContent,
+                targetProps: componentProps
               }}
             />
           </div>

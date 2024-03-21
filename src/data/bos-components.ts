@@ -2,6 +2,8 @@ import type { NetworkId } from '@/utils/types';
 
 type NetworkComponents = {
   applicationsPage: string;
+  blog: string;
+  blogPost: string;
   bosDirectory: string;
   componentSummary: string;
   componentsPage: string;
@@ -14,6 +16,7 @@ type NetworkComponents = {
   };
   image: string;
   nearOrg: {
+    cookiePrompt: string;
     cookiePolicy: string;
     ecosystemPage: string;
     ecosystemCommunityPage: string;
@@ -36,8 +39,11 @@ type NetworkComponents = {
     dataAvailabilityPage: string;
     termsPage: string;
     privacyPage: string;
+    papersPage: string;
+    foundersPage: string;
   };
   relayerDemo: string;
+  notificationButton: string;
   peoplePage: string;
   profileImage: string;
   profileInlineBlock: string;
@@ -54,6 +60,7 @@ type NetworkComponents = {
   widgetMetadata: string;
   widgetMetadataEditor: string;
   wrapper: string;
+  eventsPage: string;
 };
 
 export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | undefined> => {
@@ -65,6 +72,8 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
   return {
     testnet: {
       applicationsPage: `${testnetTLA}/widget/AppLibrary.IndexPage`,
+      blog: `${testnetTLA}/widget/Blog/Feed`,
+      blogPost: `${testnetTLA}/widget/BlogPostPage`,
       bosDirectory: 'one.testnet/widget/BOSDirectory',
       componentSummary: `${testnetTLA}/widget/ComponentSummary`,
       componentsPage: `${testnetTLA}/widget/ComponentsPage`,
@@ -77,6 +86,7 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
       },
       image: 'eugenethedream/widget/Image',
       nearOrg: {
+        cookiePrompt: `${testnetTLA}/widget/NearOrg.CookiePrompt`,
         cookiePolicy: `${testnetTLA}/widget/NearOrg.CookiePolicy`,
         ecosystemPage: `${testnetTLA}/widget/NearOrg.EcosystemPage`,
         ecosystemCommunityPage: `${testnetTLA}/widget/NearOrg.Ecosystem.CommunityPage`,
@@ -99,8 +109,11 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
         dataAvailabilityPage: `${testnetTLA}/widget/NearOrg.DataAvailabilityPage`,
         termsPage: `${testnetTLA}/widget/NearOrg.TermsPage`,
         privacyPage: `${testnetTLA}/widget/NearOrg.PrivacyPage`,
+        papersPage: `${testnetTLA}/widget/NearOrg.PapersPage`,
+        foundersPage: `${testnetTLA}/widget/NearOrg.FoundersPage`,
       },
       relayerDemo: 'one.testnet/widget/RelayerMessageDemo',
+      notificationButton: `${testnetTLA}/widget/NotificationButton`,
       peoplePage: `${testnetTLA}/widget/PeoplePage`,
       profileImage: 'eugenethedream/widget/ProfileImage',
       profileInlineBlock: 'eugenethedream/widget/Profile.InlineBlock',
@@ -117,10 +130,13 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
       widgetMetadata: 'eugenethedream/widget/WidgetMetadata',
       widgetMetadataEditor: `${testnetTLA}/widget/WidgetMetadataEditor`,
       wrapper: `${testnetTLA}/widget/GatewayWrapper`,
+      eventsPage: `${testnetTLA}/widget/Events.Index`,
     },
 
     mainnet: {
       applicationsPage: 'nearcatalog.near/widget/Index',
+      blog: 'near/widget/Blog.Feed',
+      blogPost: 'near/widget/BlogPostPage',
       bosDirectory: 'onboarder.near/widget/BOSDirectory',
       componentSummary: 'near/widget/ComponentSummary',
       componentsPage: 'near/widget/ComponentsPage',
@@ -133,6 +149,7 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
       },
       image: 'mob.near/widget/Image',
       nearOrg: {
+        cookiePrompt: 'near/widget/NearOrg.CookiePrompt',
         cookiePolicy: 'near/widget/NearOrg.CookiePolicy',
         ecosystemPage: 'near/widget/NearOrg.EcosystemPage',
         ecosystemCommunityPage: 'near/widget/NearOrg.Ecosystem.CommunityPage',
@@ -155,8 +172,11 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
         dataAvailabilityPage: 'near/widget/NearOrg.DataAvailabilityPage',
         termsPage: 'near/widget/NearOrg.TermsPage',
         privacyPage: 'near/widget/NearOrg.PrivacyPage',
+        papersPage: 'near/widget/NearOrg.PapersPage',
+        foundersPage: 'near/widget/NearOrg.FoundersPage',
       },
       relayerDemo: 'relayer-demo.near/widget/RelayerMessageDemo',
+      notificationButton: 'near/widget/NotificationButton',
       peoplePage: 'near/widget/PeoplePage',
       profileImage: 'mob.near/widget/ProfileImage',
       profileInlineBlock: 'mob.near/widget/Profile.InlineBlock',
@@ -173,6 +193,7 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
       widgetMetadata: 'mob.near/widget/WidgetMetadata',
       widgetMetadataEditor: 'near/widget/WidgetMetadataEditor',
       wrapper: 'near/widget/GatewayWrapper',
+      eventsPage: 'near/widget/Events.Index',
     },
   };
 })();

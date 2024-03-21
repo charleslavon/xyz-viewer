@@ -7,13 +7,10 @@ import styled from 'styled-components';
 
 import { Button } from '@/components/lib/Button';
 import { useBosComponents } from '@/hooks/useBosComponents';
-import { useSignInRedirect } from '@/hooks/useSignInRedirect';
 import { useAuthStore } from '@/stores/auth';
 
 import { UserDropdownMenu } from '../desktop/UserDropdownMenu';
 import NearLogotype from '../icons/near-logotype.svg';
-import SearchIcon from '../icons/search.svg';
-import { NotificationButton } from '../NotificationButton';
 import { AccordionMenu } from './AccordionMenu';
 
 type Props = {
